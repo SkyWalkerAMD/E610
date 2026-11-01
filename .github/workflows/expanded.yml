@@ -24,6 +24,8 @@ jobs:
       matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - id: matrix
         env:
           TARGETS: ${{ inputs.targets }}
@@ -73,9 +75,12 @@ jobs:
           - { id: centos-9, image: 'quay.io/centos/centos:stream9' }
           - { id: centos-10, image: 'quay.io/centos/centos:stream10' }
           - { id: debian-11, image: 'debian:11' }
+          - { id: debian-10, image: 'debian:10' }
           - { id: debian-12, image: 'debian:12' }
           - { id: debian-13, image: 'debian:13' }
           - { id: ubuntu-24.10, image: 'ubuntu:24.10' }
+          - { id: ubuntu-25.04, image: 'ubuntu:25.04' }
+          - { id: ubuntu-26.04, image: 'ubuntu:26.04' }
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Prepare disposable test image without build tools

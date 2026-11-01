@@ -2,18 +2,18 @@
 
 **[E610 ISO 镜像制作包 6.4.5 r1](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-iso-kit-r1)**：普通手动安装和 PXE 自动安装共用直接内置驱动的 ISO，安装结束自动持久化驱动。包含 38 套精确 ABI 模块、源码和 43 个独立镜像的验证记录（86 项隔离安装与重启）。[制作与使用说明](pxe-media/RELEASE.zh-CN.md)。本轮无 E610 实卡，物理链路、收发及机器 Secure Boot 信任登记仍待验收。
 
-**推荐：[多系统统一离线包 r3](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r3)**。
-一个包整合 Ubuntu 20.04 / 22.04 / 24.04、Debian 11–13、AlmaLinux 8–10、Rocky 8–10，以及已有 CentOS / RHEL 精确内核适配。
+**推荐：[多系统统一离线包 r4](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r4)**。
+共 93 个精确系统/内核组合，整合 Ubuntu 20/22/24/25/26、Debian 10–13、AlmaLinux 8–10、Rocky 8–10，以及已有 CentOS / RHEL 适配。已核对指定镜像库的 52 张 Linux ISO，补齐 Debian 10.11 和 Ubuntu 25.04 / 26.04 的统一入口。
 自动匹配系统与精确内核，需要时安装预编译驱动，已经原生支持时提示无需安装，不升级目标内核。
-提供 `tar.gz`、`.run` 和 KVM 驱动 ISO；[中文安装说明](coverage/INSTALL.zh-CN.md)、[验证范围](coverage/VALIDATION.zh-CN.md)。
+提供 `tar.gz`、`.run` 和 KVM 驱动 ISO；[中文安装说明](mirror/INSTALL.zh-CN.md)、[验证范围](mirror/VALIDATION.zh-CN.md)。
 
 ```bash
-sudo bash E610-MultiOS-6.4.5-r3.run
+sudo bash E610-MultiOS-6.4.5-r4.run
 ```
 
 **[已适配系统、下载与验证汇总](SUPPORTED-SYSTEMS.zh-CN.md)**：包含精确内核清单、原生支持检测、
 中文说明、SHA-256 校验和验证边界。系统大版本相同不代表后续全部安全更新内核均可混用。
-原 r2 支持组合的安装器、证书和备份继续沿用。RHEL 10 尚未取得原版镜像验证；Oracle Linux / UEK、其他架构及任意更新内核不在已验证范围。
+原 r3 支持组合的安装器、证书和备份继续沿用。指定镜像库没有 RHEL 10 原版镜像；Oracle Linux / UEK、其他架构及任意更新内核不在已验证范围。
 
 Ubuntu Server 22.04.3 GA 的构建、镜像适配和验证说明见 [ubuntu22-e610](ubuntu22-e610/README.zh-CN.md)。各系统的编译与实机结果分别记录，不能互相替代。
 
