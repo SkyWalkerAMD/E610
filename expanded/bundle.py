@@ -33,7 +33,7 @@ def build(inputs, work, output):
     legacy = json.loads((ROOT / 'multios/payloads.json').read_text())
     for key, value in legacy.items():
         dest = bundle / 'payloads' / value['file']
-        url = f"https://github.com/SkyWalkerAMD-org/E610/releases/download/{value['release']}/{value['file']}"
+        url = f"https://github.com/SkyWalkerAMD/E610/releases/download/{value['release']}/{value['file']}"
         sp.run(['curl', '-fL', '--retry', '3', '-o', str(dest), url], check=True)
         assert sha(dest) == value['sha256'], key
         system, version = ('centos', '7') if key == 'centos7' else ('ubuntu', '22.04' if key == 'ubuntu22' else '24.04')
@@ -100,8 +100,8 @@ def build(inputs, work, output):
     (bundle / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     validation = ('# 云端验证记录\n\n'
         f"构建提交：`{os.environ['GITHUB_SHA']}`。\n\n"
-        f"[打包与介质测试](https://github.com/SkyWalkerAMD-org/E610/actions/runs/{os.environ['GITHUB_RUN_ID']})。\n\n"
-        '逐内核测试运行：' + '、'.join(f"[{run}](https://github.com/SkyWalkerAMD-org/E610/actions/runs/{run})" for run in sorted({r['run_id'] for r in records if 'run_id' in r})) + '。\n\n'
+        f"[打包与介质测试](https://github.com/SkyWalkerAMD/E610/actions/runs/{os.environ['GITHUB_RUN_ID']})。\n\n"
+        '逐内核测试运行：' + '、'.join(f"[{run}](https://github.com/SkyWalkerAMD/E610/actions/runs/{run})" for run in sorted({r['run_id'] for r in records if 'run_id' in r})) + '。\n\n'
         '新增外部模块：精确内核编译、全部五个 E610 PCI 设备 ID、真实内核三次加载卸载；UEFI Secure Boot 下已注册 MOK 的模块加载、未签名模块拒绝；断网、无编译器环境的安装、重复安装、原文件保留、损坏备份拒绝、启动镜像失败恢复及回退。\n\n'
         '原生支持组合：直接检查官方介质中的 ixgbe 模块 PCI 别名，并启动对应内核验证三次加载卸载。无额外驱动写入。\n\n'
         'Secure Boot 测试预先导入测试所需公钥；Ubuntu 22.04 / 22.04.1 的早期内核使用原安装镜像的签名 shim / GRUB。Rocky 使用测试用 Ubuntu shim，附加信任原内核的供应商公钥，未修改或重新签名原内核。不能替代现场固件 MOK 交互验证，也不表示任意新版启动链默认接受旧内核。安装包不更改目标机器启动器。\n\n'

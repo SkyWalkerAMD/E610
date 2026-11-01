@@ -16,11 +16,11 @@ QEMU 没有 E610 设备，启动环境为实际 CentOS 内核和最小 BusyBox i
 
 ## 可核对的云端记录
 
-- 仓库：[skywalkeramd-org/E610](https://github.com/skywalkeramd-org/E610)。
+- 仓库：[SkyWalkerAMD/E610](https://github.com/SkyWalkerAMD/E610)。
 - 已验证代码提交：`6d8c6cc3b2b128fcff0c4177ea59d68bef8a39a3`。
-- 最终任务：[38828112627](https://github.com/skywalkeramd-org/E610/actions/runs/38828112627)。
-- 初始内核任务：[116740250561](https://github.com/skywalkeramd-org/E610/actions/runs/38828112627/job/116740250561)。
-- 最后更新内核任务：[116740250869](https://github.com/skywalkeramd-org/E610/actions/runs/38828112627/job/116740250869)。
+- 最终任务：[38828112627](https://github.com/SkyWalkerAMD/E610/actions/runs/38828112627)。
+- 初始内核任务：[116740250561](https://github.com/SkyWalkerAMD/E610/actions/runs/38828112627/job/116740250561)。
+- 最后更新内核任务：[116740250869](https://github.com/SkyWalkerAMD/E610/actions/runs/38828112627/job/116740250869)。
 
 仓库中的 `evidence/final/` 保存最终编译、启动、环境和模块信息的文本证据。
 对应 `ixgbe.ko` 在该次 Actions 的两个构建产物中，并另行保存在本地交付包中。

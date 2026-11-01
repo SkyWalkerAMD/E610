@@ -1,8 +1,8 @@
 # E610 网卡的 Linux 适配与验证
 
-**[E610 ISO 镜像制作包 6.4.5 r1](https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-iso-kit-r1)**：普通手动安装和 PXE 自动安装共用直接内置驱动的 ISO，安装结束自动持久化驱动。包含 38 套精确 ABI 模块、源码和 43 个独立镜像的验证记录（86 项隔离安装与重启）。[制作与使用说明](pxe-media/RELEASE.zh-CN.md)。本轮无 E610 实卡，物理链路、收发及机器 Secure Boot 信任登记仍待验收。
+**[E610 ISO 镜像制作包 6.4.5 r1](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-iso-kit-r1)**：普通手动安装和 PXE 自动安装共用直接内置驱动的 ISO，安装结束自动持久化驱动。包含 38 套精确 ABI 模块、源码和 43 个独立镜像的验证记录（86 项隔离安装与重启）。[制作与使用说明](pxe-media/RELEASE.zh-CN.md)。本轮无 E610 实卡，物理链路、收发及机器 Secure Boot 信任登记仍待验收。
 
-**推荐：[多系统统一离线包 r2](https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-multios-r2)**。
+**推荐：[多系统统一离线包 r2](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r2)**。
 一个包覆盖 Ubuntu 22.04 / 24.04、Rocky Linux 8 / 9 的安装介质内核，并保留 CentOS 7.9。
 自动匹配系统与精确内核，需要时安装预编译驱动，已经原生支持时提示无需安装，不升级目标内核。
 提供 `tar.gz`、`.run` 和 KVM 驱动 ISO；[中文安装说明](expanded/INSTALL.zh-CN.md)。
@@ -19,7 +19,7 @@ Ubuntu Server 22.04.3 GA 的构建、镜像适配和验证说明见 [ubuntu22-e6
 
 以下为已发布的 CentOS 7.9 适配。
 
-**CentOS 推荐安装方式：**下载 [CentOS 7.9 Release](https://github.com/skywalkeramd-org/E610/releases/tag/v6.4.5-centos7.9-r2)
+**CentOS 推荐安装方式：**下载 [CentOS 7.9 Release](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-centos7.9-r2)
 中的 r2 完整包，解压后运行 `sudo bash install.sh`。安装器自动选模块、校验、备份并
 更新 initramfs；回退使用 `sudo bash uninstall.sh`。具体步骤见
 [简化安装说明](INSTALL.zh-CN.md)。下文保留源码构建和手动部署细节。

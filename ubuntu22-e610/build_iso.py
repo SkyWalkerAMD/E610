@@ -217,7 +217,7 @@ Unattended-Upgrade::Package-Blacklist { ".*"; };
     run(*args, "-commit", "-end")
     manifest = {"source_iso_sha256": ISO_SHA256, "output_iso": output.name, "output_iso_sha256": sha(output),
                 "kernel": KERNEL, "driver": "ixgbe 6.4.5", "module_sha256": sha(module), "policy_sha256": sha(policy),
-                "source_reference": "https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-centos7.9-r2",
+                "source_reference": "https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-centos7.9-r2",
                 "signature": "unsigned custom module; Secure Boot hardware validation not included",
                 "hardware_validation": "pending"}
     put(output.with_suffix(".manifest.json"), json.dumps(manifest, indent=2) + "\n")

@@ -70,13 +70,13 @@ def main(archive, work, output):
         "volume_label": "E610_UBU2204", "network_required_on_target": False,
         "compiler_required_on_target": False, "kernel_replaced": False,
         "persistent_package": "/opt/e610-offline/ubuntu22-5.15.0-78-r1",
-        "archive_url": "https://github.com/SkyWalkerAMD-org/E610/releases/download/"
+        "archive_url": "https://github.com/SkyWalkerAMD/E610/releases/download/"
                        "v6.4.5-ubuntu22.04.3-5.15.0-78-r1/" + NAME + ".tar.gz",
         "archive_sha256": ARCHIVE_SHA, "module_sha256": MODULE_SHA,
         "certificate_sha256": CERT_SHA, "signed_payload_commit": SOURCE_COMMIT,
         "signed_payload_validation": payload["run_url"],
         "media_commit": os.environ.get("GITHUB_SHA", "local"),
-        "media_run": "https://github.com/SkyWalkerAMD-org/E610/actions/runs/" + os.environ.get("GITHUB_RUN_ID", "local"),
+        "media_run": "https://github.com/SkyWalkerAMD/E610/actions/runs/" + os.environ.get("GITHUB_RUN_ID", "local"),
         "run_sha256": sha(installer), "physical_e610_validation": "not tested",
     }
     write(media / "MEDIA-MANIFEST.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")

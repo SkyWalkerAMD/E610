@@ -30,7 +30,7 @@ manifest = {
  'module_sha256': hashlib.sha256((out/'ixgbe.ko').read_bytes()).hexdigest(),
  'certificate_sha256': hashlib.sha256((out/'E610-MOK.der').read_bytes()).hexdigest(),
  'commit': (out/'build-commit.txt').read_text().strip(),
- 'run_url': f"https://github.com/{os.getenv('GITHUB_REPOSITORY','skywalkeramd-org/E610')}/actions/runs/{os.getenv('GITHUB_RUN_ID','local')}",
+ 'run_url': f"https://github.com/{os.getenv('GITHUB_REPOSITORY','SkyWalkerAMD/E610')}/actions/runs/{os.getenv('GITHUB_RUN_ID','local')}",
  'validation': {'compilation': 'passed', 'secure_boot_real_kernel_load_unload': 'passed',
                 'unsigned_module_rejected': 'passed',
                 'installer_and_rollback': 'passed' if sys.argv[2] == 'release' else 'pending',

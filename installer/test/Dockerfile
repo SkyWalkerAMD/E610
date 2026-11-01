@@ -7,7 +7,7 @@ RUN test -n "$KVER" && \
         "kernel-${KVER}" kmod dracut util-linux coreutils tar gzip xz cpio && \
     yum clean all
 ENV KVER=${KVER}
-ADD https://github.com/skywalkeramd-org/E610/releases/download/v6.4.5-centos7.9-r1/E610-CentOS7.9-adaptation.tar.gz /fixture.tar.gz
+ADD https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-centos7.9-r1/E610-CentOS7.9-adaptation.tar.gz /fixture.tar.gz
 COPY installer /input/installer
 COPY installer/test/run.sh /input/test-installer.sh
 ENTRYPOINT ["/bin/bash", "/input/test-installer.sh"]
