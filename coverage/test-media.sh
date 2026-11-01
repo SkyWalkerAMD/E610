@@ -6,6 +6,8 @@ export LC_ALL=C
 kver=${1:?kernel}
 expected=${2:?expected module sha or native}
 kind=${3:?baseline, external, imported or native}
+release_version=${E610_TEST_RELEASE:-6.4.5-r3}
+[[ $release_version =~ ^[0-9]+\.[0-9]+\.[0-9]+-r[0-9]+$ ]]
 . /etc/os-release
 if command -v gcc || command -v make; then exit 1; fi
 mkdir -p /lib/modules /boot /run/lock /var/lock
@@ -23,8 +25,8 @@ fi
 original=$(sha256sum "$image" | awk '{print $1}')
 cd /media
 sha256sum --status -c SHA256SUMS
-run=/media/E610-MultiOS-6.4.5-r3.run
-cache=/opt/e610-offline/multios-6.4.5-r3
+run=/media/E610-MultiOS-$release_version.run
+cache=/opt/e610-offline/multios-$release_version
 bash "$run" --list
 test ! -e "$cache"
 cp "$run" /tmp/corrupt.run
@@ -37,8 +39,8 @@ printf 'ID=e610-unsupported-test\nVERSION_ID=1\n' > /etc/os-release
 if bash /media/install.sh --kernel "$kver" --check; then exit 1; fi
 cp /tmp/os-release.original /etc/os-release
 mkdir /tmp/extracted
-tar -xzf /release/E610-MultiOS-6.4.5-r3.tar.gz -C /tmp/extracted
-bash /tmp/extracted/E610-MultiOS-6.4.5-r3/install.sh --kernel "$kver" --check
+tar -xzf /release/E610-MultiOS-$release_version.tar.gz -C /tmp/extracted
+bash /tmp/extracted/E610-MultiOS-$release_version/install.sh --kernel "$kver" --check
 bash /media/install.sh --kernel "$kver" --check
 test "$(sha256sum "$image" | awk '{print $1}')" = "$original"
 if [[ $expected == native ]]; then
@@ -50,6 +52,11 @@ if [[ $expected == native ]]; then
 fi
 state=/var/lib/e610-ixgbe/coverage-$ID-$kver
 saved_backup=
+if [[ $kind == inherited ]]; then
+    state=${E610_TEST_STATE:?original state directory required}
+    bash /prior-release/E610-MultiOS-6.4.5-r3.run --kernel "$kver"
+    saved_backup=$(readlink -f "$state/latest")
+fi
 if [[ $kind == baseline ]]; then
     case "$ID:$kver" in
         ubuntu:5.15.0-78-generic) state=/var/lib/e610-ixgbe/ubuntu22-$kver ;;

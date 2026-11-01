@@ -75,6 +75,7 @@ def main():
     targets = json.loads((baseline / 'manifest.json').read_text())['targets']
     rows = []
     for t in targets:
+        t.setdefault('id', '-'.join((t['os'], t['version'], t['kernel'])))
         t['native'] = bool(native(t))
         t['inherited_kind'] = t['kind']
         t['kind'] = 'baseline'

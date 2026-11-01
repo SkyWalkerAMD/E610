@@ -1,26 +1,26 @@
 # E610 已适配系统与下载
 
-推荐使用 **[多系统统一离线包 r3](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r3)**，支持 x86_64 / amd64，不升级目标内核。新增覆盖与原有模块整合如下；只有 Release 精确清单中的内核已验证。
+推荐使用 **[多系统统一离线包 r4](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r4)**，支持 x86_64 / amd64，不升级目标内核。共 93 个精确组合，已核对镜像库 52 张 Linux ISO；覆盖与原有模块整合如下；只有 Release 精确清单中的内核已验证。
 
 | 系列 | 本包覆盖的安装版本 | 说明 |
 | --- | --- | --- |
-| Ubuntu | 20.04–20.04.6、22.04–22.04.5、24.04–24.04.5、24.10 | 镜像默认 GA/HWE 内核；原生支持的组合无需额外驱动 |
-| Debian | 11.4 / 11.11、12.5 / 12.8 / 12.15、13.0 / 13.4 | 新增 Debian 11.11，其他组合导入原 ISO Kit 模块 |
+| Ubuntu | 20.04–20.04.6、22.04–22.04.5、24.04–24.04.5、24.10、25.04、26.04 | 镜像默认 GA/HWE 内核；原生支持的组合无需额外驱动 |
+| Debian | 10.11、11.4 / 11.11、12.5 / 12.8 / 12.15、13.0 / 13.4 | r4 补齐 Debian 10.11；保留原有验证组合 |
 | CentOS | 7.6 / 7.9、8.0 / 8.4 / 8.5、Stream 8 / 9 / 10 已记录快照 | Stream 以精确内核为准，不代表持续滚动更新 |
-| RHEL | 7.6 / 7.9、8.0 / 8.1 / 8.6 / 8.10、9.2 / 9.4 | 使用已授权原版镜像补测；RHEL 10 待原版镜像验证 |
+| RHEL | 7.6 / 7.9、8.0 / 8.1 / 8.6 / 8.10、9.2 / 9.4 | 使用已授权原版镜像补测；指定镜像库无 RHEL 10，未验证 |
 | AlmaLinux | 8.10、9.0–9.8、10.0–10.2 | 检查原生支持，需要时离线安装驱动 |
 | Rocky Linux | 8.4–8.10、9.0–9.8、10.0–10.2 | 检查原生支持，需要时离线安装驱动 |
 
-- [一键 .run](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/E610-MultiOS-6.4.5-r3.run)
-- [完整 tar.gz](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/E610-MultiOS-6.4.5-r3.tar.gz)
-- [KVM 驱动数据 ISO](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/E610-MultiOS-6.4.5-r3.iso)
-- [中文安装说明](coverage/INSTALL.zh-CN.md) · [完整精确内核清单](coverage/SUPPORTED-SYSTEMS.zh-CN.md) · [SHA-256](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/SHA256SUMS) · [验证边界](coverage/VALIDATION.zh-CN.md)
+- [一键 .run](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r4/E610-MultiOS-6.4.5-r4.run)
+- [完整 tar.gz](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r4/E610-MultiOS-6.4.5-r4.tar.gz)
+- [KVM 驱动数据 ISO](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r4/E610-MultiOS-6.4.5-r4.iso)
+- [中文安装说明](mirror/INSTALL.zh-CN.md) · [完整精确内核清单](mirror/SUPPORTED-SYSTEMS.zh-CN.md) · [SHA-256](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r4/SHA256SUMS) · [验证边界](mirror/VALIDATION.zh-CN.md)
 
 ```bash
-sudo bash E610-MultiOS-6.4.5-r3.run
+sudo bash E610-MultiOS-6.4.5-r4.run
 ```
 
-导入的 ISO Kit 历史模块要求关闭 Secure Boot；新构建模块通过 MOK 签名加载测试。新批次没有 E610 实卡测试。Oracle Linux / UEK、其他架构及未列出的安全更新内核不包含在验证承诺中。
+导入的 ISO Kit 历史模块（包括 Debian 10.11）要求关闭 Secure Boot；r3 已签名模块保留原证书和验证记录。新批次没有 E610 实卡测试。Oracle Linux / UEK、其他架构及未列出的安全更新内核不包含在验证承诺中。
 
 ## 以前发布的范围与记录
 
