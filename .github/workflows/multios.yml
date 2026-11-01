@@ -38,6 +38,8 @@ jobs:
           - {id: centos-7.9, series: centos}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
       - name: Download and verify the immutable candidate
         env:
           GH_TOKEN: ${{ github.token }}
