@@ -6,14 +6,19 @@ on:
         description: 'Comma-separated media IDs; empty selects the complete new inventory'
         required: false
         default: ''
+      tools_only:
+        description: 'Export disposable offline test user spaces for the authorized mirror host'
+        type: boolean
+        default: false
 permissions:
   contents: read
   actions: read
 concurrency:
-  group: e610-coverage-r3-${{ github.ref }}
+  group: e610-coverage-r3-${{ github.ref }}-${{ inputs.tools_only }}
   cancel-in-progress: false
 jobs:
   inventory:
+    if: ${{ !inputs.tools_only }}
     runs-on: ubuntu-24.04
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
@@ -55,3 +60,33 @@ jobs:
           path: output/
           if-no-files-found: warn
           retention-days: 30
+  offline-tools:
+    if: ${{ inputs.tools_only }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { id: centos-7, image: 'quay.io/centos/centos:7' }
+          - { id: centos-8, image: 'quay.io/centos/centos:8' }
+          - { id: centos-9, image: 'quay.io/centos/centos:stream9' }
+          - { id: centos-10, image: 'quay.io/centos/centos:stream10' }
+          - { id: debian-11, image: 'debian:11' }
+          - { id: debian-12, image: 'debian:12' }
+          - { id: debian-13, image: 'debian:13' }
+          - { id: ubuntu-24.10, image: 'ubuntu:24.10' }
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Prepare disposable test image without build tools
+        run: |
+          docker build --build-arg IMAGE='${{ matrix.image }}' -f coverage/test.Dockerfile -t e610-test-${{ matrix.id }} .
+          docker save e610-test-${{ matrix.id }} | gzip -1 > test-image.tar.gz
+          sha256sum test-image.tar.gz > test-image.sha256
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tools-${{ matrix.id }}
+          path: |
+            test-image.tar.gz
+            test-image.sha256
+          retention-days: 7
