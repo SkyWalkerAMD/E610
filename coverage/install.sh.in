@@ -146,6 +146,7 @@ if grep -qsE '\[integrity\]|\[confidentiality\]' /sys/kernel/security/lockdown |
    grep -qisE '^(1|y|yes)$' /sys/module/module/parameters/sig_enforce 2>/dev/null ||
    grep -qE '(^| )module.sig_enforce=(1|y|Y|true)( |$)' /proc/cmdline; then secure=1; fi
 if [[ $secure != 0 ]]; then
+    [[ @SB_VALIDATED@ == passed ]] || die '此历史模块尚未完成 Secure Boot 验证；请关闭 Secure Boot 后安装。本次没有修改驱动。'
     [[ $expected_cert != unsigned ]] || die '此历史模块未签名，当前内核可能强制验签，无法安装。'
     command -v mokutil >/dev/null || die '需要 mokutil 注册证书；请保留报错。'
     . "$package_dir/mok-status.sh"

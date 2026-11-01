@@ -28,7 +28,8 @@ def stage(module_dir, target, destination):
     shutil.copyfile(HERE.parent / 'expanded/mok-status.sh', destination / 'mok-status.sh')
     replacements = {'KERNEL': target['kernel'], 'OS': target['os'], 'VERSION': target['version'],
                     'LABEL': f"{target['os']} {target['release']}",
-                    'MODULE_SHA256': module_sha, 'CERT_SHA256': cert_sha}
+                    'MODULE_SHA256': module_sha, 'CERT_SHA256': cert_sha,
+                    'SB_VALIDATED': target.get('secure_boot_validation', 'passed')}
     script = (HERE / 'install.sh.in').read_text()
     for key, value in replacements.items():
         script = script.replace('@' + key + '@', value)

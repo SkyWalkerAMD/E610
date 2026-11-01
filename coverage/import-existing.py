@@ -119,8 +119,11 @@ def main():
         item = dict(item)
         kw = work / item['id']
         out = output / item['id'] / item['kernel']
+        template_sha = digest(ROOT / 'coverage/install.sh.in')
         if (out / 'import-complete.json').exists():
-            continue
+            previous = json.loads((out / 'import-complete.json').read_text())
+            if previous.get('installer_template_sha256') == template_sha:
+                continue
         iso = (args.originals / item['source_iso']).resolve()
         assert iso.is_relative_to(args.originals.resolve()) and iso.is_file(), iso
         if iso not in checked:
@@ -128,8 +131,10 @@ def main():
         assert checked[iso] == item['source_sha256'], f'Original ISO checksum mismatch: {item["source_iso"]}'
         module = args.kit / 'work/drivers' / item['kernel']
         assert digest(module / 'ixgbe.ko') == modules[item['kernel']]['files']['ixgbe.ko'] == item['module_sha256']
-        if not (out / 'payload').exists():
-            stage(module, item, out / 'payload')
+        if (out / 'payload').exists():
+            assert (out / 'payload').resolve().is_relative_to(output)
+            shutil.rmtree(out / 'payload')
+        stage(module, item, out / 'payload')
         root = fixture(item, iso, kw)
         (out / 'target.json').write_text(json.dumps(item, indent=2) + '\n')
         shutil.copyfile(kw / 'fixture-complete.json', out / 'fixture-source.json')
@@ -155,7 +160,8 @@ def main():
         item['installer_validation'] = 'passed'
         item['test_user_space'] = 'original RHEL DVD' if item['os'] == 'rhel' else item['os'] + ':' + item['version']
         (out / 'target.json').write_text(json.dumps(item, indent=2) + '\n')
-        (out / 'import-complete.json').write_text(json.dumps({'id': item['id'], 'complete': True}) + '\n')
+        (out / 'import-complete.json').write_text(json.dumps({'id': item['id'], 'complete': True,
+            'installer_template_sha256': template_sha}) + '\n')
         print('E610_IMPORTED_INSTALLER_PASS', item['id'], flush=True)
 
 
