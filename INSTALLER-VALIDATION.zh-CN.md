@@ -3,7 +3,7 @@
 验证日期：2026-10-16。已验证安装器提交：
 `f5201df5a1c8a6602765dadc8a92fe35df450916`。
 
-最终云端任务：[38847991201](https://github.com/skywalkeramd-org/E610/actions/runs/38847991201)，
+最终云端任务：[38847991201](https://github.com/SkyWalkerAMD/E610/actions/runs/38847991201)，
 两个目标内核均通过全部安装器测试。
 
 | 目标内核 | 安装与镜像内模块检查 | 重复安装 / 重复回退 | 旧模块恢复 | dracut 故障自动恢复 |

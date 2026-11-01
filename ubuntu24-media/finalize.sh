@@ -18,7 +18,7 @@ depmod、mkinitramfs、unmkinitramfs 完成安装与启动镜像校验。
 
 签名模块在原始发布中已通过真实 6.8.0-31-generic 内核及 QEMU/OVMF Secure Boot
 加载测试，本次只增加介质与安装入口，没有重新编译或签名。原验证记录：
-https://github.com/SkyWalkerAMD-org/E610/actions/runs/39575285140
+https://github.com/SkyWalkerAMD/E610/actions/runs/39575285140
 
 未在本次云端测试中验证物理 E610 链路、具体 BMC 的光驱重定向和固件 MOK 交互界面。
 该 ISO 供已安装的 Ubuntu 挂载使用，不是系统启动或重装镜像。

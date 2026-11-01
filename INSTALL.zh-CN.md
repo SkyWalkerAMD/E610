@@ -4,7 +4,7 @@
 
 ## 安装：下载、解压、执行
 
-从 [Release 页面](https://github.com/skywalkeramd-org/E610/releases/tag/v6.4.5-centos7.9-r2)
+从 [Release 页面](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-centos7.9-r2)
 下载 **`E610-CentOS7.9-adaptation-r2.tar.gz`**，复制到目标机器。
 请使用本地或带外控制台，在维护窗口执行：
 

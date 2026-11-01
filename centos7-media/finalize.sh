@@ -20,8 +20,8 @@ lsinitrd 验证安装、启动镜像模块身份、重复安装、回退和启�
 
 目标：3.10.0-1160.el7.x86_64、3.10.0-1160.119.1.el7.x86_64。
 本次不重新编译或签名。原模块的真实内核 QEMU 加载、三次卸载及缓存清理验证：
-https://github.com/SkyWalkerAMD-org/E610/actions/runs/38828112627
-原安装器的故障恢复等验证：https://github.com/SkyWalkerAMD-org/E610/actions/runs/38847991201
+https://github.com/SkyWalkerAMD/E610/actions/runs/38828112627
+原安装器的故障恢复等验证：https://github.com/SkyWalkerAMD/E610/actions/runs/38847991201
 
 未验证：E610 实卡链路、收发、性能、PTP、SR-IOV，具体 BMC 光驱重定向。
 模块未签名，不支持直接在强制签名的机器安装。ISO 不是系统启动或重装镜像。

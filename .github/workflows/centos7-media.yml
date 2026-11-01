@@ -16,7 +16,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends xorriso
-          curl --fail --location --retry 3 -o "$RUNNER_TEMP/driver.tar.gz" https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-centos7.9-r2/E610-CentOS7.9-adaptation-r2.tar.gz
+          curl --fail --location --retry 3 -o "$RUNNER_TEMP/driver.tar.gz" https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-centos7.9-r2/E610-CentOS7.9-adaptation-r2.tar.gz
       - name: Build the single-file installer and KVM ISO
         run: python3 centos7-media/build.py --archive "$RUNNER_TEMP/driver.tar.gz" --work "$RUNNER_TEMP/media-build" --output "$PWD/output/centos7-media"
       - name: Test the read-only ISO on both supported CentOS kernels

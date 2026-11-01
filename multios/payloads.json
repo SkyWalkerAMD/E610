@@ -11,7 +11,7 @@
       "3.10.0-1160.119.1.el7.x86_64": "db2df6bce892243e338dfa870dfc5119808a97d4cce5ea7f964828847a1e6a3f"
     },
     "signing": "unsigned",
-    "validation": "https://github.com/SkyWalkerAMD-org/E610/actions/runs/39888242636"
+    "validation": "https://github.com/SkyWalkerAMD/E610/actions/runs/39888242636"
   },
   "ubuntu22": {
     "file": "E610-Ubuntu22.04.3-5.15.0-78-r1.run",
@@ -23,7 +23,7 @@
     "modules": {"5.15.0-78-generic": "43afae311f0a21975f327e809c6136deb56eda51d73ca972c0f4d88a292ab78f"},
     "certificate_sha256": "7451b0b999aca0397b39bdd5ee6eac9d0837b3a7e69625033bc59a50e7e76b8d",
     "signing": "existing release MOK",
-    "validation": "https://github.com/SkyWalkerAMD-org/E610/actions/runs/39889018696"
+    "validation": "https://github.com/SkyWalkerAMD/E610/actions/runs/39889018696"
   },
   "ubuntu24": {
     "file": "E610-Ubuntu24.04-6.8.0-31-r1.run",
@@ -35,6 +35,6 @@
     "modules": {"6.8.0-31-generic": "846e8c45328507d3474019611e5ce4f1c40a7f20875b2b05c4645a15358ca9e1"},
     "certificate_sha256": "895376179044eb32c24da6c6df6c3f0b94c0650c030dc54797012bf0a6adde57",
     "signing": "existing release MOK",
-    "validation": "https://github.com/SkyWalkerAMD-org/E610/actions/runs/39576821698"
+    "validation": "https://github.com/SkyWalkerAMD/E610/actions/runs/39576821698"
   }
 }

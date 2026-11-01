@@ -36,7 +36,7 @@ def main(work, output):
     targets = json.loads((HERE / "payloads.json").read_text())
     script = (HERE / "install.sh.in").read_text()
     for key, payload in targets.items():
-        url = ("https://github.com/SkyWalkerAMD-org/E610/releases/download/"
+        url = ("https://github.com/SkyWalkerAMD/E610/releases/download/"
                + payload["release"] + "/" + payload["file"])
         target = bundle / "payloads" / payload["file"]
         subprocess.run(["curl", "--fail", "--location", "--retry", "3", "-o", str(target), url], check=True)

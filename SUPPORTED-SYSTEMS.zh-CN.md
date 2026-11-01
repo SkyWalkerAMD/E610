@@ -1,6 +1,6 @@
 # E610 已适配系统与下载
 
-镜像安装适配已发布 **[E610 ISO Kit 6.4.5 r1](https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-iso-kit-r1)**，覆盖 AlmaLinux、CentOS、Debian、RHEL、Rocky、Ubuntu 共 43 个需补驱动的原版镜像，手动/PXE 共用成品。详见 [ISO Kit 指南](pxe-media/RELEASE.zh-CN.md)和[逐镜像记录](pxe-media/baked-catalog.json)。以下的 MultiOS r2 清单继续对应已安装系统离线驱动包，两者范围分别列出。
+镜像安装适配已发布 **[E610 ISO Kit 6.4.5 r1](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-iso-kit-r1)**，覆盖 AlmaLinux、CentOS、Debian、RHEL、Rocky、Ubuntu 共 43 个需补驱动的原版镜像，手动/PXE 共用成品。详见 [ISO Kit 指南](pxe-media/RELEASE.zh-CN.md)和[逐镜像记录](pxe-media/baked-catalog.json)。以下的 MultiOS r2 清单继续对应已安装系统离线驱动包，两者范围分别列出。
 
 推荐使用 **多系统统一离线包 r2**，支持 x86_64 / amd64，自动匹配系统与精确内核，不升级内核。
 覆盖 Ubuntu Server 22.04–22.04.5、24.04–24.04.5 的 GA/HWE 安装介质内核，Rocky Linux 8.4–8.10、9.0–9.8，保留 CentOS 7.9。
@@ -10,10 +10,10 @@
 
 三种格式包含同一套适配内容，任选一种：
 
-- [一键 .run](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-multios-r2/E610-MultiOS-6.4.5-r2.run)
-- [完整 tar.gz](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-multios-r2/E610-MultiOS-6.4.5-r2.tar.gz)
-- [KVM 驱动 ISO](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-multios-r2/E610-MultiOS-6.4.5-r2.iso)
-- [中文安装说明](expanded/INSTALL.zh-CN.md) · [SHA-256 校验值](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-multios-r2/SHA256SUMS) · [最新版 Release](https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-multios-r2)
+- [一键 .run](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r2/E610-MultiOS-6.4.5-r2.run)
+- [完整 tar.gz](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r2/E610-MultiOS-6.4.5-r2.tar.gz)
+- [KVM 驱动 ISO](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r2/E610-MultiOS-6.4.5-r2.iso)
+- [中文安装说明](expanded/INSTALL.zh-CN.md) · [SHA-256 校验值](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r2/SHA256SUMS) · [最新版 Release](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r2)
 
 ```bash
 sudo bash E610-MultiOS-6.4.5-r2.run
@@ -76,7 +76,7 @@ KVM ISO 挂载后执行光盘中的 `install.sh`；这是驱动数据光盘，�
 原生支持组合检查原始介质中驱动的全部五个 E610 PCI 设备 ID，并验证模块加载。
 最终统一包在 12 个代表性组合中通过只读 ISO、tar.gz、.run 入口、自动选择、完整性校验和回退验证。
 
-[最终成功的发布验证](https://github.com/SkyWalkerAMD-org/E610/actions/runs/39897854153) · [详细验证报告](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-multios-r2/VALIDATION.zh-CN.md) · [产物及内核来源清单](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-multios-r2/manifest.json)。
+[最终成功的发布验证](https://github.com/SkyWalkerAMD/E610/actions/runs/39897854153) · [详细验证报告](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r2/VALIDATION.zh-CN.md) · [产物及内核来源清单](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r2/manifest.json)。
 
 新增系统尚未做 E610 实卡链路、吞吐、PTP、SR-IOV 和长时间稳定性验收。旧版本的 Ubuntu 实机记录保留在下方，不能代替新增系统验收。
 Ubuntu 22.04 / 22.04.1 的早期内核使用对应原镜像的签名启动链完成 Secure Boot 测试，不表示新版固件或启动器的吊销策略一定接受这些旧内核；安装包不修改启动器。
@@ -85,9 +85,9 @@ Ubuntu 22.04 / 22.04.1 的早期内核使用对应原镜像的签名启动链完
 
 | 系统 | 精确支持内核 | 完整 tar.gz | 单文件 .run | KVM 驱动 ISO |
 | --- | --- | --- | --- | --- |
-| CentOS Linux 7.9.2009 | `3.10.0-1160.el7.x86_64`、`3.10.0-1160.119.1.el7.x86_64` | [下载](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-centos7.9-r2/E610-CentOS7.9-adaptation-r2.tar.gz) | [下载](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-centos7.9-r2/E610-CentOS7.9-adaptation-r2.run) | [下载](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-centos7.9-r2/E610-CentOS7.9-adaptation-r2.iso) |
-| Ubuntu Server 22.04.3 GA | `5.15.0-78-generic` | [下载](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-ubuntu22.04.3-5.15.0-78-r1/E610-Ubuntu22.04.3-5.15.0-78-r1.tar.gz) | [下载](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-ubuntu22.04.3-5.15.0-78-r1/E610-Ubuntu22.04.3-5.15.0-78-r1.run) | [下载](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-ubuntu22.04.3-5.15.0-78-r1/E610-Ubuntu22.04.3-5.15.0-78-r1.iso) |
-| Ubuntu 24.04 | `6.8.0-31-generic` | [下载](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-ubuntu24.04-6.8.0-31-r1/E610-Ubuntu24.04-6.8.0-31-r1.tar.gz) | [下载](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-ubuntu24.04-6.8.0-31-r1/E610-Ubuntu24.04-6.8.0-31-r1.run) | [下载](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-ubuntu24.04-6.8.0-31-r1/E610-Ubuntu24.04-6.8.0-31-r1.iso) |
+| CentOS Linux 7.9.2009 | `3.10.0-1160.el7.x86_64`、`3.10.0-1160.119.1.el7.x86_64` | [下载](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-centos7.9-r2/E610-CentOS7.9-adaptation-r2.tar.gz) | [下载](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-centos7.9-r2/E610-CentOS7.9-adaptation-r2.run) | [下载](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-centos7.9-r2/E610-CentOS7.9-adaptation-r2.iso) |
+| Ubuntu Server 22.04.3 GA | `5.15.0-78-generic` | [下载](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-ubuntu22.04.3-5.15.0-78-r1/E610-Ubuntu22.04.3-5.15.0-78-r1.tar.gz) | [下载](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-ubuntu22.04.3-5.15.0-78-r1/E610-Ubuntu22.04.3-5.15.0-78-r1.run) | [下载](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-ubuntu22.04.3-5.15.0-78-r1/E610-Ubuntu22.04.3-5.15.0-78-r1.iso) |
+| Ubuntu 24.04 | `6.8.0-31-generic` | [下载](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-ubuntu24.04-6.8.0-31-r1/E610-Ubuntu24.04-6.8.0-31-r1.tar.gz) | [下载](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-ubuntu24.04-6.8.0-31-r1/E610-Ubuntu24.04-6.8.0-31-r1.run) | [下载](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-ubuntu24.04-6.8.0-31-r1/E610-Ubuntu24.04-6.8.0-31-r1.iso) |
 
 三种格式包含同一系统对应的相同驱动，无需联网或编译工具：
 
@@ -103,9 +103,9 @@ GitHub 自动生成的 “Source code” 压缩包仅包含仓库代码，不包
 
 | 系统 | Release | KVM / .run 安装说明 | 三种安装包 SHA-256 |
 | --- | --- | --- | --- |
-| CentOS 7.9 | [r2](https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-centos7.9-r2) | [说明](centos7-media/KVM-INSTALL.zh-CN.md) | [ALL-SHA256SUMS](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-centos7.9-r2/ALL-SHA256SUMS) |
-| Ubuntu 22.04.3 | [r1](https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-ubuntu22.04.3-5.15.0-78-r1) | [说明](ubuntu22-media/KVM-INSTALL.zh-CN.md) | [ALL-SHA256SUMS](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-ubuntu22.04.3-5.15.0-78-r1/ALL-SHA256SUMS) |
-| Ubuntu 24.04 | [r1](https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-ubuntu24.04-6.8.0-31-r1) | [说明](ubuntu24-media/KVM-INSTALL.zh-CN.md) | [ALL-SHA256SUMS](https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-ubuntu24.04-6.8.0-31-r1/ALL-SHA256SUMS) |
+| CentOS 7.9 | [r2](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-centos7.9-r2) | [说明](centos7-media/KVM-INSTALL.zh-CN.md) | [ALL-SHA256SUMS](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-centos7.9-r2/ALL-SHA256SUMS) |
+| Ubuntu 22.04.3 | [r1](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-ubuntu22.04.3-5.15.0-78-r1) | [说明](ubuntu22-media/KVM-INSTALL.zh-CN.md) | [ALL-SHA256SUMS](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-ubuntu22.04.3-5.15.0-78-r1/ALL-SHA256SUMS) |
+| Ubuntu 24.04 | [r1](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-ubuntu24.04-6.8.0-31-r1) | [说明](ubuntu24-media/KVM-INSTALL.zh-CN.md) | [ALL-SHA256SUMS](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-ubuntu24.04-6.8.0-31-r1/ALL-SHA256SUMS) |
 
 下载所需安装包和同一 Release 的 `ALL-SHA256SUMS` 后，在下载目录执行：
 

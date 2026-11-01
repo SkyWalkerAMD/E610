@@ -64,11 +64,11 @@ def main(archive, work, output):
         "volume_label": "E610_CENTOS7", "network_required_on_target": False,
         "compiler_required_on_target": False, "kernel_replaced": False,
         "persistent_package": "/opt/e610-offline/centos7.9-r2",
-        "archive_url": "https://github.com/SkyWalkerAMD-org/E610/releases/download/v6.4.5-centos7.9-r2/" + NAME + ".tar.gz",
+        "archive_url": "https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-centos7.9-r2/" + NAME + ".tar.gz",
         "archive_sha256": ARCHIVE_SHA, "payload_commit": payload["tested_commit"],
         "payload_validation": payload["run_url"], "installer_validation": payload["installer"]["run_url"],
         "media_commit": os.environ["GITHUB_SHA"],
-        "media_run": "https://github.com/SkyWalkerAMD-org/E610/actions/runs/" + os.environ["GITHUB_RUN_ID"],
+        "media_run": "https://github.com/SkyWalkerAMD/E610/actions/runs/" + os.environ["GITHUB_RUN_ID"],
         "run_sha256": sha(installer), "physical_e610_validation": "not tested",
     }
     write(media / "MEDIA-MANIFEST.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")

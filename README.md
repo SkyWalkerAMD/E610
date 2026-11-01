@@ -1,8 +1,8 @@
 # Intel E610 / Linux compatibility
 
-**[E610 ISO Kit 6.4.5 r1](https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-iso-kit-r1)** embeds exact-kernel drivers and native installer completion hooks in Linux ISOs. The same adapted image supports manual and PXE automatic installation. The kit includes 38 prebuilt ABI-specific modules, source and public evidence for 43 distinct ISO outputs (86 isolated installation/reboot cases). See the [Chinese ISO kit guide](pxe-media/RELEASE.zh-CN.md). Physical E610 link/traffic and machine-specific Secure Boot trust enrollment remain pending.
+**[E610 ISO Kit 6.4.5 r1](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-iso-kit-r1)** embeds exact-kernel drivers and native installer completion hooks in Linux ISOs. The same adapted image supports manual and PXE automatic installation. The kit includes 38 prebuilt ABI-specific modules, source and public evidence for 43 distinct ISO outputs (86 isolated installation/reboot cases). See the [Chinese ISO kit guide](pxe-media/RELEASE.zh-CN.md). Physical E610 link/traffic and machine-specific Secure Boot trust enrollment remain pending.
 
-**[Download the multi-system offline package r2](https://github.com/SkyWalkerAMD-org/E610/releases/tag/v6.4.5-multios-r2)**:
+**[Download the multi-system offline package r2](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r2)**:
 one `.tar.gz`, `.run`, or KVM driver data ISO covers installation-media kernels
 from Ubuntu 22.04 / 24.04 and Rocky Linux 8 / 9, retaining CentOS 7.9 support.
 It selects the exact OS/kernel, installs a prebuilt driver where needed, and
@@ -19,9 +19,9 @@ subsequent security-update kernel ABI.
 
 Ubuntu Server 22.04.3 GA adaptation is developed in [ubuntu22-e610](ubuntu22-e610/README.zh-CN.md). Its build and image checks are separate from CentOS validation; hardware acceptance is recorded there.
 
-[中文说明](README.zh-CN.md) · [Cloud tests](https://github.com/skywalkeramd-org/E610/actions/workflows/centos7.yml)
+[中文说明](README.zh-CN.md) · [Cloud tests](https://github.com/SkyWalkerAMD/E610/actions/workflows/centos7.yml)
 
-For CentOS 7.9, download the complete r2 bundle from its [Release](https://github.com/skywalkeramd-org/E610/releases/tag/v6.4.5-centos7.9-r2).
+For CentOS 7.9, download the complete r2 bundle from its [Release](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-centos7.9-r2).
 Extract it, then run `sudo bash install.sh` inside the extracted directory. The
 offline installer selects the matching kernel module, verifies it, backs up the
 existing files and updates initramfs. It does not reboot. Use `sudo bash uninstall.sh`
