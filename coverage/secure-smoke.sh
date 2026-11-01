@@ -17,6 +17,20 @@ cp "$(dirname "$0")/../expanded/mok-status.sh" "$root/"
 openssl req -new -x509 -newkey rsa:2048 -nodes -days 1 -subj '/CN=Untrusted test/' -keyout /dev/null -outform DER -out "$root/untrusted.der" 2>/dev/null
 cp "$work/unsigned-ixgbe.ko" "$root/unsigned-ixgbe.ko"
 sed "s/5.15.0-78-generic/$kernel/g" "$(dirname "$0")/../ubuntu22-offline/smoke-init.sh" > "$root/init"
+# Debian builds efivarfs as a module. The minimal test initrd must load it
+# before inspecting firmware variables; the normal distro initrd does this.
+if modinfo -b "$work/root" -k "$kernel" efivarfs >/dev/null 2>&1; then
+    mapfile -t efi_modules < <(modprobe -d "$work/root" -S "$kernel" --show-depends efivarfs | awk '$1 == "insmod" {print $2}')
+    for module in "${efi_modules[@]}"; do
+        name=$(basename "$module"); name=${name%.zst}; name=${name%.xz}
+        case "$module" in
+            *.xz) xz -dc "$module" > "$root/modules/$name" ;;
+            *.zst) zstd -dc "$module" > "$root/modules/$name" ;;
+            *) cp "$module" "$root/modules/$name" ;;
+        esac
+        sed -i "/mount -t efivarfs/i insmod /modules/$name" "$root/init"
+    done
+fi
 chmod 755 "$root/init"
 (cd "$root" && find . -print0 | cpio --null -o --format=newc --owner=0:0) | gzip -1 > "$esp/initrd.gz"
 vmlinuz=$work/root/boot/vmlinuz-$kernel
