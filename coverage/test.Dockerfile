@@ -11,7 +11,7 @@ RUN if command -v apt-get; then \
       if [ "$ID:$VERSION_ID" = ubuntu:24.10 ]; then \
         sed -i -E 's@https?://([a-z.]*archive.ubuntu.com|security.ubuntu.com)/ubuntu/?@http://old-releases.ubuntu.com/ubuntu/@g' /etc/apt/sources.list.d/*.sources; \
       fi; \
-      apt-get update && apt-get install -y --no-install-recommends initramfs-tools kmod zstd mokutil util-linux ca-certificates && rm -rf /var/lib/apt/lists/*; \
+      apt-get update && apt-get install -y --no-install-recommends initramfs-tools kmod zstd xz-utils mokutil util-linux ca-certificates && rm -rf /var/lib/apt/lists/*; \
     else \
       . /etc/os-release; \
       if [ "$ID:$VERSION_ID" = centos:7 ] || [ "$ID:$VERSION_ID" = centos:8 ]; then \

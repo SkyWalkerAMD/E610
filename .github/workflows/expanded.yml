@@ -79,11 +79,13 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Prepare disposable test image without build tools
+        if: inputs.targets == '' || contains(format(',{0},', inputs.targets), format(',{0},', matrix.id))
         run: |
           docker build --build-arg IMAGE='${{ matrix.image }}' -f coverage/test.Dockerfile -t e610-test-${{ matrix.id }} .
           docker save e610-test-${{ matrix.id }} | gzip -1 > test-image.tar.gz
           sha256sum test-image.tar.gz > test-image.sha256
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: inputs.targets == '' || contains(format(',{0},', inputs.targets), format(',{0},', matrix.id))
         with:
           name: tools-${{ matrix.id }}
           path: |
