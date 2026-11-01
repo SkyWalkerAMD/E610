@@ -33,6 +33,13 @@ def stage(module_dir, target, destination):
     script = (HERE / 'install.sh.in').read_text()
     for key, value in replacements.items():
         script = script.replace('@' + key + '@', value)
+    if target['os'] not in ('ubuntu', 'debian') and target['version'] == '7':
+        # EL7 dracut has no lsinitrd --unpack. Extract just the verified module
+        # with its supported --file option, retaining the exact byte check.
+        script = script.replace('(cd "$extract_dir" && lsinitrd --unpack "$temp_image")', '''mapfile -t embedded < <(lsinitrd "$temp_image" | awk '$NF ~ /updates\\/e610\\/ixgbe.ko$/ {print $NF}')
+    [[ ${#embedded[@]} == 1 ]]
+    mkdir -p "$extract_dir/updates/e610"
+    lsinitrd -f "${embedded[0]}" "$temp_image" > "$extract_dir/updates/e610/ixgbe.ko"''')
     (destination / 'install.sh').write_text(script)
     if target['os'] in ('ubuntu', 'debian'):
         hook = (HERE.parent / 'ubuntu22-offline/initramfs-hook').read_text().replace('5.15.0-78-generic', target['kernel'])

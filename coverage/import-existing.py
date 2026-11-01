@@ -65,9 +65,14 @@ def fixture(item, iso, work):
             # dpkg is not required on the mirror host. ar and tar extract the
             # data member without running any package installation scripts.
             members = sp.check_output(['ar', 't', str(package)], text=True).splitlines()
-            member = next(m for m in members if m.startswith('data.tar.'))
-            run('bash', '-o', 'pipefail', '-c', 'ar p "$1" "$2" | tar -x -C "$3"',
-                'bash', package, member, root)
+            member = next(m for m in members if m == 'data.tar' or m.startswith('data.tar.'))
+            data = work / member
+            with data.open('wb') as stream:
+                run('ar', 'p', package, member, stdout=stream)
+            # GNU tar detects xz/zstd from a named file, including uncompressed
+            # data.tar members shipped on some Ubuntu installation media.
+            run('tar', '-xf', data, '-C', root)
+            data.unlink()
     if not (root / 'lib').exists():
         (root / 'lib').symlink_to('usr/lib')
     run('depmod', '-b', root, '-a', kernel)
