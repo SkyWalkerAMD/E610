@@ -41,13 +41,16 @@ def catalog(audit, targets):
             for module in boot['modules']:
                 key = os_id, version, module['kernel']
                 assert key in lookup, ('Uncovered live ISO kernel', r['iso'], key)
-                assert module['all_e610_ids'], ('Live ISO boot driver lacks E610 IDs', r['iso'])
+                # A stock module without E610 aliases is exactly why an offline
+                # payload is needed. Require all aliases only for native rows.
+                if native(lookup[key]):
+                    assert module['all_e610_ids'], ('Native entry lacks E610 IDs', r['iso'])
                 entry = kernels.setdefault(module['kernel'], {'kernel': module['kernel'],
                     'package_target': lookup[key]['id'], 'action': 'native' if native(lookup[key]) else 'offline-driver',
                     'boot_paths': []})
                 entry['boot_paths'].append({'initrd': boot['initrd'], 'kernel_sha256': boot['kernel_sha256'],
                     'initrd_sha256': boot['initrd_sha256'], 'ixgbe_sha256': module['sha256'],
-                    'pci_ids': module['pci_ids']})
+                    'pci_ids': module['pci_ids'], 'all_e610_ids': module['all_e610_ids']})
         assert kernels
         rows.append({'iso': r['iso'], 'size': r['size'], 'os': os_id, 'version': version,
                      'kernels': list(kernels.values())})
