@@ -14,7 +14,7 @@
 - [一键 .run](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/E610-MultiOS-6.4.5-r3.run)
 - [完整 tar.gz](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/E610-MultiOS-6.4.5-r3.tar.gz)
 - [KVM 驱动数据 ISO](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/E610-MultiOS-6.4.5-r3.iso)
-- [中文安装说明](coverage/INSTALL.zh-CN.md) · [完整精确内核清单](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/SUPPORTED-SYSTEMS.zh-CN.md) · [SHA-256](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/SHA256SUMS) · [验证边界](coverage/VALIDATION.zh-CN.md)
+- [中文安装说明](coverage/INSTALL.zh-CN.md) · [完整精确内核清单](coverage/SUPPORTED-SYSTEMS.zh-CN.md) · [SHA-256](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/SHA256SUMS) · [验证边界](coverage/VALIDATION.zh-CN.md)
 
 ```bash
 sudo bash E610-MultiOS-6.4.5-r3.run
