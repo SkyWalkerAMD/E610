@@ -1,0 +1,505 @@
+[
+  {
+    "id": "almalinux-10.0",
+    "os": "almalinux",
+    "version": "10",
+    "release": "10.0",
+    "repository": "https://vault.almalinux.org/10.0/",
+    "kernels": [
+      {
+        "kernel": "6.12.0-55.9.1.el10_0.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/10.0/BaseOS/x86_64/kickstart/Packages/kernel-core-6.12.0-55.9.1.el10_0.x86_64.rpm",
+          "https://vault.almalinux.org/10.0/BaseOS/x86_64/kickstart/Packages/kernel-modules-6.12.0-55.9.1.el10_0.x86_64.rpm",
+          "https://vault.almalinux.org/10.0/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-6.12.0-55.9.1.el10_0.x86_64.rpm",
+          "https://vault.almalinux.org/10.0/AppStream/x86_64/kickstart/Packages/kernel-devel-6.12.0-55.9.1.el10_0.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-10.1",
+    "os": "almalinux",
+    "version": "10",
+    "release": "10.1",
+    "repository": "https://vault.almalinux.org/10.1/",
+    "kernels": [
+      {
+        "kernel": "6.12.0-124.8.1.el10_1.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/10.1/BaseOS/x86_64/kickstart/Packages/kernel-core-6.12.0-124.8.1.el10_1.x86_64.rpm",
+          "https://vault.almalinux.org/10.1/BaseOS/x86_64/kickstart/Packages/kernel-modules-6.12.0-124.8.1.el10_1.x86_64.rpm",
+          "https://vault.almalinux.org/10.1/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-6.12.0-124.8.1.el10_1.x86_64.rpm",
+          "https://vault.almalinux.org/10.1/AppStream/x86_64/kickstart/Packages/kernel-devel-6.12.0-124.8.1.el10_1.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-10.2",
+    "os": "almalinux",
+    "version": "10",
+    "release": "10.2",
+    "repository": "https://repo.almalinux.org/almalinux/10.2/",
+    "kernels": [
+      {
+        "kernel": "6.12.0-211.7.3.el10_2.x86_64",
+        "urls": [
+          "https://repo.almalinux.org/almalinux/10.2/BaseOS/x86_64/kickstart/Packages/kernel-core-6.12.0-211.7.3.el10_2.x86_64.rpm",
+          "https://repo.almalinux.org/almalinux/10.2/BaseOS/x86_64/kickstart/Packages/kernel-modules-6.12.0-211.7.3.el10_2.x86_64.rpm",
+          "https://repo.almalinux.org/almalinux/10.2/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-6.12.0-211.7.3.el10_2.x86_64.rpm",
+          "https://repo.almalinux.org/almalinux/10.2/AppStream/x86_64/kickstart/Packages/kernel-devel-6.12.0-211.7.3.el10_2.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-8.10",
+    "os": "almalinux",
+    "version": "8",
+    "release": "8.10",
+    "repository": "https://repo.almalinux.org/almalinux/8.10/",
+    "kernels": [
+      {
+        "kernel": "4.18.0-553.el8_10.x86_64",
+        "urls": [
+          "https://repo.almalinux.org/almalinux/8.10/BaseOS/x86_64/kickstart/Packages/kernel-core-4.18.0-553.el8_10.x86_64.rpm",
+          "https://repo.almalinux.org/almalinux/8.10/BaseOS/x86_64/kickstart/Packages/kernel-modules-4.18.0-553.el8_10.x86_64.rpm",
+          "https://repo.almalinux.org/almalinux/8.10/BaseOS/x86_64/kickstart/Packages/kernel-devel-4.18.0-553.el8_10.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-9.0",
+    "os": "almalinux",
+    "version": "9",
+    "release": "9.0",
+    "repository": "https://vault.almalinux.org/9.0/",
+    "kernels": [
+      {
+        "kernel": "5.14.0-70.13.1.el9_0.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/9.0/BaseOS/x86_64/kickstart/Packages/kernel-core-5.14.0-70.13.1.el9_0.x86_64.rpm",
+          "https://vault.almalinux.org/9.0/BaseOS/x86_64/kickstart/Packages/kernel-modules-5.14.0-70.13.1.el9_0.x86_64.rpm",
+          "https://vault.almalinux.org/9.0/AppStream/x86_64/kickstart/Packages/kernel-devel-5.14.0-70.13.1.el9_0.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-9.1",
+    "os": "almalinux",
+    "version": "9",
+    "release": "9.1",
+    "repository": "https://vault.almalinux.org/9.1/",
+    "kernels": [
+      {
+        "kernel": "5.14.0-162.6.1.el9_1.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/9.1/BaseOS/x86_64/kickstart/Packages/kernel-core-5.14.0-162.6.1.el9_1.x86_64.rpm",
+          "https://vault.almalinux.org/9.1/BaseOS/x86_64/kickstart/Packages/kernel-modules-5.14.0-162.6.1.el9_1.x86_64.rpm",
+          "https://vault.almalinux.org/9.1/AppStream/x86_64/kickstart/Packages/kernel-devel-5.14.0-162.6.1.el9_1.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-9.2",
+    "os": "almalinux",
+    "version": "9",
+    "release": "9.2",
+    "repository": "https://vault.almalinux.org/9.2/",
+    "kernels": [
+      {
+        "kernel": "5.14.0-284.11.1.el9_2.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/9.2/BaseOS/x86_64/kickstart/Packages/kernel-core-5.14.0-284.11.1.el9_2.x86_64.rpm",
+          "https://vault.almalinux.org/9.2/BaseOS/x86_64/kickstart/Packages/kernel-modules-5.14.0-284.11.1.el9_2.x86_64.rpm",
+          "https://vault.almalinux.org/9.2/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-5.14.0-284.11.1.el9_2.x86_64.rpm",
+          "https://vault.almalinux.org/9.2/AppStream/x86_64/kickstart/Packages/kernel-devel-5.14.0-284.11.1.el9_2.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-9.3",
+    "os": "almalinux",
+    "version": "9",
+    "release": "9.3",
+    "repository": "https://vault.almalinux.org/9.3/",
+    "kernels": [
+      {
+        "kernel": "5.14.0-362.8.1.el9_3.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/9.3/BaseOS/x86_64/kickstart/Packages/kernel-core-5.14.0-362.8.1.el9_3.x86_64.rpm",
+          "https://vault.almalinux.org/9.3/BaseOS/x86_64/kickstart/Packages/kernel-modules-5.14.0-362.8.1.el9_3.x86_64.rpm",
+          "https://vault.almalinux.org/9.3/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-5.14.0-362.8.1.el9_3.x86_64.rpm",
+          "https://vault.almalinux.org/9.3/AppStream/x86_64/kickstart/Packages/kernel-devel-5.14.0-362.8.1.el9_3.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-9.4",
+    "os": "almalinux",
+    "version": "9",
+    "release": "9.4",
+    "repository": "https://vault.almalinux.org/9.4/",
+    "kernels": [
+      {
+        "kernel": "5.14.0-427.13.1.el9_4.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/9.4/BaseOS/x86_64/kickstart/Packages/kernel-core-5.14.0-427.13.1.el9_4.x86_64.rpm",
+          "https://vault.almalinux.org/9.4/BaseOS/x86_64/kickstart/Packages/kernel-modules-5.14.0-427.13.1.el9_4.x86_64.rpm",
+          "https://vault.almalinux.org/9.4/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-5.14.0-427.13.1.el9_4.x86_64.rpm",
+          "https://vault.almalinux.org/9.4/AppStream/x86_64/kickstart/Packages/kernel-devel-5.14.0-427.13.1.el9_4.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-9.5",
+    "os": "almalinux",
+    "version": "9",
+    "release": "9.5",
+    "repository": "https://vault.almalinux.org/9.5/",
+    "kernels": [
+      {
+        "kernel": "5.14.0-503.11.1.el9_5.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/9.5/BaseOS/x86_64/kickstart/Packages/kernel-core-5.14.0-503.11.1.el9_5.x86_64.rpm",
+          "https://vault.almalinux.org/9.5/BaseOS/x86_64/kickstart/Packages/kernel-modules-5.14.0-503.11.1.el9_5.x86_64.rpm",
+          "https://vault.almalinux.org/9.5/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-5.14.0-503.11.1.el9_5.x86_64.rpm",
+          "https://vault.almalinux.org/9.5/AppStream/x86_64/kickstart/Packages/kernel-devel-5.14.0-503.11.1.el9_5.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-9.6",
+    "os": "almalinux",
+    "version": "9",
+    "release": "9.6",
+    "repository": "https://vault.almalinux.org/9.6/",
+    "kernels": [
+      {
+        "kernel": "5.14.0-570.12.1.el9_6.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/9.6/BaseOS/x86_64/kickstart/Packages/kernel-core-5.14.0-570.12.1.el9_6.x86_64.rpm",
+          "https://vault.almalinux.org/9.6/BaseOS/x86_64/kickstart/Packages/kernel-modules-5.14.0-570.12.1.el9_6.x86_64.rpm",
+          "https://vault.almalinux.org/9.6/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-5.14.0-570.12.1.el9_6.x86_64.rpm",
+          "https://vault.almalinux.org/9.6/AppStream/x86_64/kickstart/Packages/kernel-devel-5.14.0-570.12.1.el9_6.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-9.7",
+    "os": "almalinux",
+    "version": "9",
+    "release": "9.7",
+    "repository": "https://vault.almalinux.org/9.7/",
+    "kernels": [
+      {
+        "kernel": "5.14.0-611.5.1.el9_7.x86_64",
+        "urls": [
+          "https://vault.almalinux.org/9.7/BaseOS/x86_64/kickstart/Packages/kernel-core-5.14.0-611.5.1.el9_7.x86_64.rpm",
+          "https://vault.almalinux.org/9.7/BaseOS/x86_64/kickstart/Packages/kernel-modules-5.14.0-611.5.1.el9_7.x86_64.rpm",
+          "https://vault.almalinux.org/9.7/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-5.14.0-611.5.1.el9_7.x86_64.rpm",
+          "https://vault.almalinux.org/9.7/AppStream/x86_64/kickstart/Packages/kernel-devel-5.14.0-611.5.1.el9_7.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "almalinux-9.8",
+    "os": "almalinux",
+    "version": "9",
+    "release": "9.8",
+    "repository": "https://repo.almalinux.org/almalinux/9.8/",
+    "kernels": [
+      {
+        "kernel": "5.14.0-687.5.3.el9_8.x86_64",
+        "urls": [
+          "https://repo.almalinux.org/almalinux/9.8/BaseOS/x86_64/kickstart/Packages/kernel-core-5.14.0-687.5.3.el9_8.x86_64.rpm",
+          "https://repo.almalinux.org/almalinux/9.8/BaseOS/x86_64/kickstart/Packages/kernel-modules-5.14.0-687.5.3.el9_8.x86_64.rpm",
+          "https://repo.almalinux.org/almalinux/9.8/BaseOS/x86_64/kickstart/Packages/kernel-modules-core-5.14.0-687.5.3.el9_8.x86_64.rpm",
+          "https://repo.almalinux.org/almalinux/9.8/AppStream/x86_64/kickstart/Packages/kernel-devel-5.14.0-687.5.3.el9_8.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "debian-11.11.0",
+    "os": "debian",
+    "version": "11",
+    "release": "11.11.0",
+    "iso_url": "https://cdimage.debian.org/mirror/cdimage/archive/11.11.0/amd64/iso-dvd/debian-11.11.0-amd64-DVD-1.iso",
+    "iso_sha256": "4cd8d17e3cd6ccb065decc52bff1fc8e4dbc3756e98e34e9acb004dc14ee3d69",
+    "listing_url": "https://cdimage.debian.org/mirror/cdimage/archive/11.11.0/amd64/list-dvd/debian-11.11.0-amd64-DVD-1.list.gz",
+    "listing_sha256": "d0980550c5b751ad569a689dd84db863b52492a1d4bd74a647daf2aab229e7a5",
+    "kernels": [
+      {
+        "kernel": "5.10.0-32-amd64",
+        "paths": [
+          "/linux-headers-5.10.0-32-amd64_5.10.223-1_amd64.deb",
+          "/linux-headers-5.10.0-32-common_5.10.223-1_all.deb",
+          "/linux-image-5.10.0-32-amd64_5.10.223-1_amd64.deb",
+          "/linux-kbuild-5.10_5.10.223-1_amd64.deb"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rocky-10.0",
+    "os": "rocky",
+    "version": "10",
+    "release": "10.0",
+    "repository": "https://dl.rockylinux.org/vault/rocky/10.0/",
+    "kernels": [
+      {
+        "kernel": "6.12.0-55.12.1.el10_0.x86_64",
+        "urls": [
+          "https://dl.rockylinux.org/vault/rocky/10.0/BaseOS/x86_64/kickstart/Packages/k/kernel-core-6.12.0-55.12.1.el10_0.x86_64.rpm",
+          "https://dl.rockylinux.org/vault/rocky/10.0/BaseOS/x86_64/kickstart/Packages/k/kernel-modules-6.12.0-55.12.1.el10_0.x86_64.rpm",
+          "https://dl.rockylinux.org/vault/rocky/10.0/BaseOS/x86_64/kickstart/Packages/k/kernel-modules-core-6.12.0-55.12.1.el10_0.x86_64.rpm",
+          "https://dl.rockylinux.org/vault/rocky/10.0/AppStream/x86_64/kickstart/Packages/k/kernel-devel-6.12.0-55.12.1.el10_0.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rocky-10.1",
+    "os": "rocky",
+    "version": "10",
+    "release": "10.1",
+    "repository": "https://dl.rockylinux.org/vault/rocky/10.1/",
+    "kernels": [
+      {
+        "kernel": "6.12.0-124.8.1.el10_1.x86_64",
+        "urls": [
+          "https://dl.rockylinux.org/vault/rocky/10.1/BaseOS/x86_64/kickstart/Packages/k/kernel-core-6.12.0-124.8.1.el10_1.x86_64.rpm",
+          "https://dl.rockylinux.org/vault/rocky/10.1/BaseOS/x86_64/kickstart/Packages/k/kernel-modules-6.12.0-124.8.1.el10_1.x86_64.rpm",
+          "https://dl.rockylinux.org/vault/rocky/10.1/BaseOS/x86_64/kickstart/Packages/k/kernel-modules-core-6.12.0-124.8.1.el10_1.x86_64.rpm",
+          "https://dl.rockylinux.org/vault/rocky/10.1/AppStream/x86_64/kickstart/Packages/k/kernel-devel-6.12.0-124.8.1.el10_1.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rocky-10.2",
+    "os": "rocky",
+    "version": "10",
+    "release": "10.2",
+    "repository": "https://dl.rockylinux.org/pub/rocky/10.2/",
+    "kernels": [
+      {
+        "kernel": "6.12.0-211.16.1.el10_2.0.1.x86_64",
+        "urls": [
+          "https://dl.rockylinux.org/pub/rocky/10.2/BaseOS/x86_64/kickstart/Packages/k/kernel-core-6.12.0-211.16.1.el10_2.0.1.x86_64.rpm",
+          "https://dl.rockylinux.org/pub/rocky/10.2/BaseOS/x86_64/kickstart/Packages/k/kernel-modules-6.12.0-211.16.1.el10_2.0.1.x86_64.rpm",
+          "https://dl.rockylinux.org/pub/rocky/10.2/BaseOS/x86_64/kickstart/Packages/k/kernel-modules-core-6.12.0-211.16.1.el10_2.0.1.x86_64.rpm",
+          "https://dl.rockylinux.org/pub/rocky/10.2/AppStream/x86_64/kickstart/Packages/k/kernel-devel-6.12.0-211.16.1.el10_2.0.1.x86_64.rpm"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ubuntu-20.04",
+    "os": "ubuntu",
+    "version": "20.04",
+    "release": "20.04",
+    "iso_url": "https://old-releases.ubuntu.com/releases/20.04/ubuntu-20.04-live-server-amd64.iso",
+    "iso_sha256": "caf3fd69c77c439f162e2ba6040e9c320c4ff0d69aad1340a514319a9264df9f",
+    "hwe_overlays": [],
+    "kernels": [
+      {
+        "kernel": "5.4.0-26-generic",
+        "paths": [
+          "/pool/main/l/linux/linux-headers-5.4.0-26-generic_5.4.0-26.30_amd64.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-26_5.4.0-26.30_all.deb",
+          "/pool/main/l/linux/linux-modules-5.4.0-26-generic_5.4.0-26.30_amd64.deb",
+          "/pool/main/l/linux/linux-modules-extra-5.4.0-26-generic_5.4.0-26.30_amd64.deb",
+          "/pool/main/l/linux-signed/linux-image-5.4.0-26-generic_5.4.0-26.30_amd64.deb"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ubuntu-20.04.1",
+    "os": "ubuntu",
+    "version": "20.04",
+    "release": "20.04.1",
+    "iso_url": "https://old-releases.ubuntu.com/releases/20.04.1/ubuntu-20.04.1-live-server-amd64.iso",
+    "iso_sha256": "443511f6bf12402c12503733059269a2e10dec602916c0a75263e5d990f6bb93",
+    "hwe_overlays": [],
+    "kernels": [
+      {
+        "kernel": "5.4.0-42-generic",
+        "paths": [
+          "/pool/main/l/linux/linux-modules-extra-5.4.0-42-generic_5.4.0-42.46_amd64.deb",
+          "/pool/main/l/linux/linux-modules-5.4.0-42-generic_5.4.0-42.46_amd64.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-42_5.4.0-42.46_all.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-42-generic_5.4.0-42.46_amd64.deb",
+          "/pool/main/l/linux-signed/linux-image-5.4.0-42-generic_5.4.0-42.46_amd64.deb"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ubuntu-20.04.2",
+    "os": "ubuntu",
+    "version": "20.04",
+    "release": "20.04.2",
+    "iso_url": "https://old-releases.ubuntu.com/releases/20.04.2/ubuntu-20.04.2-live-server-amd64.iso",
+    "iso_sha256": "d1f2bf834bbe9bb43faf16f9be992a6f3935e65be0edece1dee2aa6eb1767423",
+    "hwe_overlays": [],
+    "kernels": [
+      {
+        "kernel": "5.8.0-41-generic",
+        "paths": [
+          "/pool/main/l/linux-hwe-5.8/linux-headers-5.8.0-41-generic_5.8.0-41.46~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.8/linux-hwe-5.8-headers-5.8.0-41_5.8.0-41.46~20.04.1_all.deb",
+          "/pool/main/l/linux-hwe-5.8/linux-modules-5.8.0-41-generic_5.8.0-41.46~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.8/linux-modules-extra-5.8.0-41-generic_5.8.0-41.46~20.04.1_amd64.deb",
+          "/pool/main/l/linux-signed-hwe-5.8/linux-image-5.8.0-41-generic_5.8.0-41.46~20.04.1_amd64.deb"
+        ]
+      },
+      {
+        "kernel": "5.4.0-65-generic",
+        "paths": [
+          "/pool/main/l/linux/linux-modules-5.4.0-65-generic_5.4.0-65.73_amd64.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-65_5.4.0-65.73_all.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-65-generic_5.4.0-65.73_amd64.deb",
+          "/pool/main/l/linux/linux-modules-extra-5.4.0-65-generic_5.4.0-65.73_amd64.deb",
+          "/pool/main/l/linux-signed/linux-image-5.4.0-65-generic_5.4.0-65.73_amd64.deb"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ubuntu-20.04.3",
+    "os": "ubuntu",
+    "version": "20.04",
+    "release": "20.04.3",
+    "iso_url": "https://old-releases.ubuntu.com/releases/20.04.3/ubuntu-20.04.3-live-server-amd64.iso",
+    "iso_sha256": "f8e3086f3cea0fb3fefb29937ab5ed9d19e767079633960ccb50e76153effc98",
+    "hwe_overlays": [],
+    "kernels": [
+      {
+        "kernel": "5.4.0-81-generic",
+        "paths": [
+          "/pool/main/l/linux/linux-headers-5.4.0-81-generic_5.4.0-81.91_amd64.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-81_5.4.0-81.91_all.deb",
+          "/pool/main/l/linux/linux-modules-5.4.0-81-generic_5.4.0-81.91_amd64.deb",
+          "/pool/main/l/linux/linux-modules-extra-5.4.0-81-generic_5.4.0-81.91_amd64.deb",
+          "/pool/main/l/linux-signed/linux-image-5.4.0-81-generic_5.4.0-81.91_amd64.deb"
+        ]
+      },
+      {
+        "kernel": "5.11.0-27-generic",
+        "paths": [
+          "/pool/main/l/linux-hwe-5.11/linux-headers-5.11.0-27-generic_5.11.0-27.29~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.11/linux-hwe-5.11-headers-5.11.0-27_5.11.0-27.29~20.04.1_all.deb",
+          "/pool/main/l/linux-hwe-5.11/linux-modules-5.11.0-27-generic_5.11.0-27.29~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.11/linux-modules-extra-5.11.0-27-generic_5.11.0-27.29~20.04.1_amd64.deb",
+          "/pool/main/l/linux-signed-hwe-5.11/linux-image-5.11.0-27-generic_5.11.0-27.29~20.04.1_amd64.deb"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ubuntu-20.04.4",
+    "os": "ubuntu",
+    "version": "20.04",
+    "release": "20.04.4",
+    "iso_url": "https://old-releases.ubuntu.com/releases/20.04.4/ubuntu-20.04.4-live-server-amd64.iso",
+    "iso_sha256": "28ccdb56450e643bad03bb7bcf7507ce3d8d90e8bf09e38f6bd9ac298a98eaad",
+    "hwe_overlays": [],
+    "kernels": [
+      {
+        "kernel": "5.13.0-30-generic",
+        "paths": [
+          "/pool/main/l/linux-hwe-5.13/linux-headers-5.13.0-30-generic_5.13.0-30.33~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.13/linux-hwe-5.13-headers-5.13.0-30_5.13.0-30.33~20.04.1_all.deb",
+          "/pool/main/l/linux-hwe-5.13/linux-modules-5.13.0-30-generic_5.13.0-30.33~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.13/linux-modules-extra-5.13.0-30-generic_5.13.0-30.33~20.04.1_amd64.deb",
+          "/pool/main/l/linux-signed-hwe-5.13/linux-image-5.13.0-30-generic_5.13.0-30.33~20.04.1_amd64.deb"
+        ]
+      },
+      {
+        "kernel": "5.4.0-100-generic",
+        "paths": [
+          "/pool/main/l/linux/linux-headers-5.4.0-100-generic_5.4.0-100.113_amd64.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-100_5.4.0-100.113_all.deb",
+          "/pool/main/l/linux/linux-modules-5.4.0-100-generic_5.4.0-100.113_amd64.deb",
+          "/pool/main/l/linux/linux-modules-extra-5.4.0-100-generic_5.4.0-100.113_amd64.deb",
+          "/pool/main/l/linux-signed/linux-image-5.4.0-100-generic_5.4.0-100.113_amd64.deb"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ubuntu-20.04.5",
+    "os": "ubuntu",
+    "version": "20.04",
+    "release": "20.04.5",
+    "iso_url": "https://old-releases.ubuntu.com/releases/20.04.5/ubuntu-20.04.5-live-server-amd64.iso",
+    "iso_sha256": "5035be37a7e9abbdc09f0d257f3e33416c1a0fb322ba860d42d74aa75c3468d4",
+    "hwe_overlays": [],
+    "kernels": [
+      {
+        "kernel": "5.15.0-46-generic",
+        "paths": [
+          "/pool/main/l/linux-hwe-5.15/linux-modules-5.15.0-46-generic_5.15.0-46.49~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.15/linux-modules-extra-5.15.0-46-generic_5.15.0-46.49~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.15/linux-headers-5.15.0-46-generic_5.15.0-46.49~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.15/linux-hwe-5.15-headers-5.15.0-46_5.15.0-46.49~20.04.1_all.deb",
+          "/pool/main/l/linux-signed-hwe-5.15/linux-image-5.15.0-46-generic_5.15.0-46.49~20.04.1_amd64.deb"
+        ]
+      },
+      {
+        "kernel": "5.4.0-125-generic",
+        "paths": [
+          "/pool/main/l/linux/linux-modules-5.4.0-125-generic_5.4.0-125.141_amd64.deb",
+          "/pool/main/l/linux/linux-modules-extra-5.4.0-125-generic_5.4.0-125.141_amd64.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-125_5.4.0-125.141_all.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-125-generic_5.4.0-125.141_amd64.deb",
+          "/pool/main/l/linux-signed/linux-image-5.4.0-125-generic_5.4.0-125.141_amd64.deb"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ubuntu-20.04.6",
+    "os": "ubuntu",
+    "version": "20.04",
+    "release": "20.04.6",
+    "iso_url": "https://releases.ubuntu.com/20.04.6/ubuntu-20.04.6-live-server-amd64.iso",
+    "iso_sha256": "b8f31413336b9393ad5d8ef0282717b2ab19f007df2e9ed5196c13d8f9153c8b",
+    "hwe_overlays": [],
+    "kernels": [
+      {
+        "kernel": "5.15.0-67-generic",
+        "paths": [
+          "/pool/main/l/linux-hwe-5.15/linux-hwe-5.15-headers-5.15.0-67_5.15.0-67.74~20.04.1_all.deb",
+          "/pool/main/l/linux-hwe-5.15/linux-headers-5.15.0-67-generic_5.15.0-67.74~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.15/linux-modules-5.15.0-67-generic_5.15.0-67.74~20.04.1_amd64.deb",
+          "/pool/main/l/linux-hwe-5.15/linux-modules-extra-5.15.0-67-generic_5.15.0-67.74~20.04.1_amd64.deb",
+          "/pool/main/l/linux-signed-hwe-5.15/linux-image-5.15.0-67-generic_5.15.0-67.74~20.04.1_amd64.deb"
+        ]
+      },
+      {
+        "kernel": "5.4.0-144-generic",
+        "paths": [
+          "/pool/main/l/linux/linux-modules-5.4.0-144-generic_5.4.0-144.161_amd64.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-144_5.4.0-144.161_all.deb",
+          "/pool/main/l/linux/linux-headers-5.4.0-144-generic_5.4.0-144.161_amd64.deb",
+          "/pool/main/l/linux-signed/linux-image-5.4.0-144-generic_5.4.0-144.161_amd64.deb",
+          "/pool/main/l/linux/linux-modules-extra-5.4.0-144-generic_5.4.0-144.161_amd64.deb"
+        ]
+      }
+    ]
+  }
+]
