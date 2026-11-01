@@ -7,7 +7,7 @@ package=/package
 if command -v gcc || command -v make; then echo 'Unexpected build tools in offline test'; exit 1; fi
 dest=/lib/modules/$kver/updates/e610/ixgbe.ko
 state=/var/lib/e610-ixgbe/coverage-$ID-$kver
-mkdir -p /lib/modules /boot
+mkdir -p /lib/modules /boot /run/lock /var/lock
 cp -a /fixture/lib/modules/"$kver" /lib/modules/
 rm -rf -- /lib/modules/"$kver"/updates/e610
 depmod -a "$kver"

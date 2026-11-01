@@ -8,7 +8,7 @@ expected=${2:?expected module sha or native}
 kind=${3:?baseline, external, imported or native}
 . /etc/os-release
 if command -v gcc || command -v make; then exit 1; fi
-mkdir -p /lib/modules /boot /var/lock
+mkdir -p /lib/modules /boot /run/lock /var/lock
 cp -a /fixture/lib/modules/"$kver" /lib/modules/
 rm -rf -- /lib/modules/"$kver"/updates/e610
 depmod -a "$kver"
