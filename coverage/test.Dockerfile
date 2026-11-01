@@ -10,7 +10,7 @@ RUN if command -v apt-get; then \
         printf 'deb http://archive.debian.org/debian %s main\ndeb http://archive.debian.org/debian-security %s main\n' "$codename" "$security" > /etc/apt/sources.list; \
         printf 'Acquire::Check-Valid-Until "false";\n' > /etc/apt/apt.conf.d/99-e610-archive; \
       fi; \
-      if [ "$ID:$VERSION_ID" = ubuntu:24.10 ] || [ "$ID:$VERSION_ID" = ubuntu:25.04 ]; then \
+      if [ "$ID:$VERSION_ID" = ubuntu:24.10 ]; then \
         sed -i -E 's@https?://([a-z.]*archive.ubuntu.com|security.ubuntu.com)/ubuntu/?@http://old-releases.ubuntu.com/ubuntu/@g' /etc/apt/sources.list.d/*.sources; \
       fi; \
       apt-get update && apt-get install -y --no-install-recommends initramfs-tools kmod zstd xz-utils mokutil util-linux ca-certificates && rm -rf /var/lib/apt/lists/*; \
