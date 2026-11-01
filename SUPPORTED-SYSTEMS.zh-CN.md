@@ -1,8 +1,32 @@
 # E610 已适配系统与下载
 
+推荐使用 **[多系统统一离线包 r3](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r3)**，支持 x86_64 / amd64，不升级目标内核。新增覆盖与原有模块整合如下；只有 Release 精确清单中的内核已验证。
+
+| 系列 | 本包覆盖的安装版本 | 说明 |
+| --- | --- | --- |
+| Ubuntu | 20.04–20.04.6、22.04–22.04.5、24.04–24.04.5、24.10 | 镜像默认 GA/HWE 内核；原生支持的组合无需额外驱动 |
+| Debian | 11.4 / 11.11、12.5 / 12.8 / 12.15、13.0 / 13.4 | 新增 Debian 11.11，其他组合导入原 ISO Kit 模块 |
+| CentOS | 7.6 / 7.9、8.0 / 8.4 / 8.5、Stream 8 / 9 / 10 已记录快照 | Stream 以精确内核为准，不代表持续滚动更新 |
+| RHEL | 7.6 / 7.9、8.0 / 8.1 / 8.6 / 8.10、9.2 / 9.4 | 使用已授权原版镜像补测；RHEL 10 待原版镜像验证 |
+| AlmaLinux | 8.10、9.0–9.8、10.0–10.2 | 检查原生支持，需要时离线安装驱动 |
+| Rocky Linux | 8.4–8.10、9.0–9.8、10.0–10.2 | 检查原生支持，需要时离线安装驱动 |
+
+- [一键 .run](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/E610-MultiOS-6.4.5-r3.run)
+- [完整 tar.gz](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/E610-MultiOS-6.4.5-r3.tar.gz)
+- [KVM 驱动数据 ISO](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/E610-MultiOS-6.4.5-r3.iso)
+- [中文安装说明](coverage/INSTALL.zh-CN.md) · [完整精确内核清单](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/SUPPORTED-SYSTEMS.zh-CN.md) · [SHA-256](https://github.com/SkyWalkerAMD/E610/releases/download/v6.4.5-multios-r3/SHA256SUMS) · [验证边界](coverage/VALIDATION.zh-CN.md)
+
+```bash
+sudo bash E610-MultiOS-6.4.5-r3.run
+```
+
+导入的 ISO Kit 历史模块要求关闭 Secure Boot；新构建模块通过 MOK 签名加载测试。新批次没有 E610 实卡测试。Oracle Linux / UEK、其他架构及未列出的安全更新内核不包含在验证承诺中。
+
+## 以前发布的范围与记录
+
 镜像安装适配已发布 **[E610 ISO Kit 6.4.5 r1](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-iso-kit-r1)**，覆盖 AlmaLinux、CentOS、Debian、RHEL、Rocky、Ubuntu 共 43 个需补驱动的原版镜像，手动/PXE 共用成品。详见 [ISO Kit 指南](pxe-media/RELEASE.zh-CN.md)和[逐镜像记录](pxe-media/baked-catalog.json)。以下的 MultiOS r2 清单继续对应已安装系统离线驱动包，两者范围分别列出。
 
-推荐使用 **多系统统一离线包 r2**，支持 x86_64 / amd64，自动匹配系统与精确内核，不升级内核。
+以下保留 **多系统统一离线包 r2** 的历史清单，支持 x86_64 / amd64，自动匹配系统与精确内核，不升级内核。
 覆盖 Ubuntu Server 22.04–22.04.5、24.04–24.04.5 的 GA/HWE 安装介质内核，Rocky Linux 8.4–8.10、9.0–9.8，保留 CentOS 7.9。
 不是任意同系列安全更新内核都能混用；完整清单见下表。
 

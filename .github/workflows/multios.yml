@@ -1,59 +1,80 @@
-name: E610 multi-system offline package
+name: E610 unified r3 release media validation
 on:
-  push:
-    branches: [codex/multios-offline]
-    paths: ['multios/**', '.github/workflows/multios.yml']
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Draft candidate release containing the exact r3 media'
+        required: true
+        default: v6.4.5-multios-r3
+      iso_sha256:
+        description: 'Expected candidate ISO SHA-256'
+        required: true
+      archive_sha256:
+        description: 'Expected candidate tar.gz SHA-256'
+        required: true
 permissions:
   contents: read
 jobs:
-  package-and-test:
+  media:
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        include:
+          - {id: ubuntu-20.04.6, series: coverage}
+          - {id: debian-11.11.0, series: coverage}
+          - {id: almalinux-8.10, series: coverage}
+          - {id: almalinux-9.0, series: coverage}
+          - {id: almalinux-9.8, series: coverage}
+          - {id: almalinux-10.0, series: coverage}
+          - {id: rocky-10.0, series: coverage}
+          - {id: rocky-10.2, series: coverage}
+          - {id: ubuntu-22.04.3, series: expanded}
+          - {id: ubuntu-24.04, series: expanded}
+          - {id: rocky-8.10, series: expanded}
+          - {id: centos-7.9, series: centos}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Prepare media tools and exact Ubuntu kernel fixtures
+      - name: Download and verify the immutable candidate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+          ISO_SHA: ${{ inputs.iso_sha256 }}
+          ARCHIVE_SHA: ${{ inputs.archive_sha256 }}
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends xorriso
-          bash multios/prepare-ubuntu-kernels.sh "$RUNNER_TEMP/kernels"
-      - name: Package the unchanged installers into tar.gz, run and ISO
+          mkdir candidate output
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir candidate
+          (cd candidate && sha256sum --status -c SHA256SUMS)
+          printf '%s  candidate/E610-MultiOS-6.4.5-r3.iso\n' "$ISO_SHA" | sha256sum -c -
+          printf '%s  candidate/E610-MultiOS-6.4.5-r3.tar.gz\n' "$ARCHIVE_SHA" | sha256sum -c -
+          bash expanded/setup-runner.sh
+      - name: Extract exact original kernel fixtures
+        if: matrix.series != 'centos'
         run: |
-          bash -n multios/install.sh.in multios/launcher.sh.in multios/iso-install.sh multios/test.sh multios/finalize.sh
-          python3 multios/build.py --work "$RUNNER_TEMP/multios" --output "$PWD/output/multios"
-          cp "$RUNNER_TEMP/kernels/kernel-fixtures.sha256" output/multios/
-      - name: Mount the actual driver ISO read-only
+          if [ '${{ matrix.series }}' = coverage ]; then
+            python3 coverage/prepare.py --id '${{ matrix.id }}' --work "$RUNNER_TEMP/fixtures" --output "$RUNNER_TEMP/fixture-metadata" --fixtures-only
+          else
+            python3 expanded/prepare.py expanded/inventory.json '${{ matrix.id }}' "$RUNNER_TEMP/fixtures" "$RUNNER_TEMP/fixture-metadata" --fixtures-only
+          fi
+      - name: Mount real driver data ISO read-only
         run: |
-          mkdir -p "$RUNNER_TEMP/mounted"
-          test "$(blkid -p -s LABEL -o value output/multios/*.iso)" = E610_MULTIOS
-          sudo mount -o loop,ro output/multios/*.iso "$RUNNER_TEMP/mounted"
-          test "$(findmnt -n -o FSTYPE --target "$RUNNER_TEMP/mounted")" = iso9660
-      - name: Test Ubuntu 22.04 and 24.04 offline selection, installation and rollback
-        run: |
-          set -o pipefail
-          for target in ubuntu22 ubuntu24; do
-            if [ "$target" = ubuntu22 ]; then dockerfile=ubuntu22-offline/test/Dockerfile; kernel=5.15.0-78-generic
-            else dockerfile=ubuntu24-e610/test/Dockerfile; kernel=6.8.0-31-generic; fi
-            docker build -f "$dockerfile" -t "e610-multios-$target" .
-            docker run --rm --network none --entrypoint bash -e TARGET="$target" -e KVER="$kernel" -v "$RUNNER_TEMP/mounted:/media:ro" -v "$PWD/output/multios:/release:ro" -v "$RUNNER_TEMP/kernels/$target:/kernel-debs:ro" -v "$PWD/multios/test.sh:/multios-test.sh:ro" "e610-multios-$target" /multios-test.sh 2>&1 | tee "output/multios/test-$target.log"
-          done
-      - name: Test both CentOS 7.9 kernels offline
-        run: |
-          set -o pipefail
-          for kernel in 3.10.0-1160.el7.x86_64 3.10.0-1160.119.1.el7.x86_64; do
-            docker build --build-arg KVER="$kernel" -f centos7-media/Dockerfile -t e610-multios-centos7 .
-            docker run --rm --network none --entrypoint bash -e TARGET=centos7 -v "$RUNNER_TEMP/mounted:/media:ro" -v "$PWD/output/multios:/release:ro" -v "$PWD/multios/test.sh:/multios-test.sh:ro" e610-multios-centos7 /multios-test.sh 2>&1 | tee "output/multios/test-centos7-$kernel.log"
-          done
-      - name: Finalize validation and checksums after all four targets pass
-        run: bash multios/finalize.sh "$PWD/output/multios"
-      - name: Detach test ISO
+          mkdir "$RUNNER_TEMP/media"
+          sudo mount -o loop,ro candidate/E610-MultiOS-6.4.5-r3.iso "$RUNNER_TEMP/media"
+          test "$(findmnt -n -o FSTYPE --target "$RUNNER_TEMP/media")" = iso9660
+          test "$(blkid -p -s LABEL -o value candidate/E610-MultiOS-6.4.5-r3.iso)" = E610_MULTIOS
+      - name: Verify all entry points and preserved historical backups offline
+        env:
+          MEDIA_ID: ${{ matrix.id }}
+          SERIES: ${{ matrix.series }}
+        run: python3 coverage/test-candidate.py
+      - name: Detach ISO
         if: always()
-        run: if mountpoint -q "$RUNNER_TEMP/mounted"; then sudo umount "$RUNNER_TEMP/mounted"; fi
-      - name: Save public package and test evidence
-        if: always()
+        run: if mountpoint -q "$RUNNER_TEMP/media"; then sudo umount "$RUNNER_TEMP/media"; fi
+      - if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: E610-MultiOS-6.4.5-r1
-          path: output/multios/
-          if-no-files-found: error
-          retention-days: 7
+          name: media-${{ matrix.id }}
+          path: output/
+          retention-days: 30

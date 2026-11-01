@@ -1,5 +1,7 @@
 # Intel E610 / Linux compatibility
 
+**[Unified offline package r3](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r3)** adds Ubuntu 20.04 installation kernels, Debian 11–13, AlmaLinux 8–10 and Rocky 10, and brings the previously tested CentOS / RHEL ISO Kit modules into the same installed-system package. Download one `.run`, `.tar.gz`, or KVM driver data ISO. It keeps the official kernel and preserves the original r2 installers, certificates and rollback backups. See the [Chinese installation guide](coverage/INSTALL.zh-CN.md) and [validation boundaries](coverage/VALIDATION.zh-CN.md). RHEL 10 original media, Oracle Linux / UEK, other architectures and arbitrary updated kernel ABIs remain outside the verified matrix.
+
 **[E610 ISO Kit 6.4.5 r1](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-iso-kit-r1)** embeds exact-kernel drivers and native installer completion hooks in Linux ISOs. The same adapted image supports manual and PXE automatic installation. The kit includes 38 prebuilt ABI-specific modules, source and public evidence for 43 distinct ISO outputs (86 isolated installation/reboot cases). See the [Chinese ISO kit guide](pxe-media/RELEASE.zh-CN.md). Physical E610 link/traffic and machine-specific Secure Boot trust enrollment remain pending.
 
 **[Download the multi-system offline package r2](https://github.com/SkyWalkerAMD/E610/releases/tag/v6.4.5-multios-r2)**:
