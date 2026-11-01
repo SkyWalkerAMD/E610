@@ -33,6 +33,11 @@ def stage(module_dir, target, destination):
     script = (HERE / 'install.sh.in').read_text()
     for key, value in replacements.items():
         script = script.replace('@' + key + '@', value)
+    if target['os'] in ('ubuntu', 'debian'):
+        # initramfs-tools ignores hook filenames containing '+'. Debian 13
+        # kernel releases contain it, while the hook content must keep it.
+        prefix = 'hook=/etc/initramfs-tools/hooks/e610-ixgbe-'
+        script = script.replace(prefix + target['kernel'], prefix + target['kernel'].replace('+', '_'))
     if target['os'] not in ('ubuntu', 'debian') and target['version'] == '7':
         # EL7 dracut has no lsinitrd --unpack. Extract just the verified module
         # with its supported --file option, retaining the exact byte check.

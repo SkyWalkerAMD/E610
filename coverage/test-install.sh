@@ -12,7 +12,7 @@ cp -a /fixture/lib/modules/"$kver" /lib/modules/
 rm -rf -- /lib/modules/"$kver"/updates/e610
 depmod -a "$kver"
 if [[ $ID == ubuntu || $ID == debian ]]; then
-    hook=/etc/initramfs-tools/hooks/e610-ixgbe-$kver
+    hook=/etc/initramfs-tools/hooks/e610-ixgbe-${kver//+/_}
     image=/boot/initrd.img-$kver
     cp /fixture/boot/config-"$kver" /boot/
     mkinitramfs -o "$image" "$kver"
