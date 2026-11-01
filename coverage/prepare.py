@@ -23,13 +23,19 @@ def image(target):
 def fixtures(target, work):
     apt = target['os'] in ('ubuntu', 'debian')
     run('docker', 'build', '--build-arg', 'IMAGE=' + image(target), '-f',
-        ROOT / 'expanded/test.Dockerfile', '-t', 'e610-offline-test', ROOT)
+        HERE / 'test.Dockerfile', '-t', 'e610-offline-test', ROOT)
     sources = {}
     if apt:
         iso = work / 'original.iso'
         download(target['iso_url'], iso, target['iso_sha256'])
         if target['os'] == 'ubuntu':
-            extract_iso(iso, '/EFI/boot', work / 'original-efi')
+            tree = sp.check_output(['xorriso', '-indev', str(iso), '-find', '/', '-type', 'f'], text=True)
+            files = [line.strip().strip("'") for line in tree.splitlines()]
+            bootfiles = [p for p in files if p.lower().endswith(('/bootx64.efi', '/grubx64.efi'))]
+            if len(bootfiles) == 2:
+                (work / 'original-efi').mkdir()
+                for path in bootfiles:
+                    extract_iso(iso, path, work / 'original-efi' / Path(path).name.lower())
         for entry in target['kernels']:
             kernel = entry['kernel']
             kw = work / kernel
