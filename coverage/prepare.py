@@ -28,9 +28,9 @@ def fixtures(target, work):
     if apt:
         iso = work / 'original.iso'
         download(target['iso_url'], iso, target['iso_sha256'])
+        tree = sp.check_output(['xorriso', '-indev', str(iso), '-find', '/', '-type', 'f'], text=True)
+        files = [line.strip().strip("'") for line in tree.splitlines()]
         if target['os'] == 'ubuntu':
-            tree = sp.check_output(['xorriso', '-indev', str(iso), '-find', '/', '-type', 'f'], text=True)
-            files = [line.strip().strip("'") for line in tree.splitlines()]
             bootfiles = [p for p in files if p.lower().endswith(('/bootx64.efi', '/grubx64.efi'))]
             if len(bootfiles) == 2:
                 (work / 'original-efi').mkdir()
@@ -43,6 +43,11 @@ def fixtures(target, work):
                 (kw / area).mkdir(parents=True, exist_ok=True)
             source = {'iso_url': target['iso_url'], 'iso_sha256': target['iso_sha256'], 'packages': {}}
             for path in entry['paths']:
+                if path not in files:
+                    matches = [p for p in files if Path(p).name == Path(path).name]
+                    if len(matches) != 1:
+                        raise ValueError(f'Package must resolve uniquely in verified ISO: {path}: {matches}')
+                    path = matches[0]
                 package = kw / 'packages' / Path(path).name
                 extract_iso(iso, path, package)
                 source['packages'][path] = sha(package)
