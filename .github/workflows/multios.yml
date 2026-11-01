@@ -13,7 +13,8 @@ on:
         description: 'Expected candidate tar.gz SHA-256'
         required: true
 permissions:
-  contents: read
+  # GitHub restricts access to unpublished draft release assets to writers.
+  contents: write
 jobs:
   media:
     runs-on: ubuntu-24.04
